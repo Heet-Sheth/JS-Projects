@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <title>Palindrome Checker</title>
+</head>
+
+<body>
+    <input type="text" id="inputText" placeholder="Enter text to check for palindrome">
+    <button id="checkButton" onclick="checkPalindrome()">Check Palindrome</button>
+    <p id="result">Enter text to check for palindrome...</p>
+    <script>
+        function checkPalindrome() {
+            const text = document.getElementById("inputText").value;
+            const result = document.getElementById("result");
+
+            let start = 0, end = text.length - 1;
+
+            while (start < end) if (text[start++] != text[end--]) {
+                result.innerHTML = "NOT A PALINDROME";
+                return;
+            }
+
+            result.innerHTML = "IS A PALINDROME";
+        }
+    </script>
+</body>
+
+</html>
