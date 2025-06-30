@@ -1,0 +1,51 @@
+<html>
+    <head><title>JAVASCRIPT COUNTER</title>
+        <style>
+            #counter_value{
+                font-size: 2em;
+                color: green;
+                position: relative;
+            }
+            button {
+                position: relative;
+                width: 100px;
+                height: 50px;
+                font-size: 1.5em;
+            }
+            body{
+                container: flex;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+            }
+            #buttonHolder {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                gap: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <p id="counter_value">0</p>
+        <div id="buttonHolder">
+            <button onclick="incrementCounter()">+</button>
+            <button onclick="decrementCounter()">-</button>
+        </div>
+        <script>
+            let counter = 0;
+
+            function incrementCounter(){
+                counter++;
+                document.getElementById("counter_value").innerHTML = counter;
+            }
+
+            function  decrementCounter(){
+                counter--;
+                document.getElementById("counter_value").innerHTML = counter;
+            }
+        </script>
+    </body>
+</html>
