@@ -1,0 +1,36 @@
+<html>
+
+<head>
+    <title>Random Number Genarator</title>
+</head>
+<script defer>
+    function generate() {
+        event.preventDefault();
+
+        const min = parseInt(document.getElementById("min").value);
+        const max = parseInt(document.getElementById("max").value);
+        const result = document.getElementById("result");
+
+        if (isNaN(min) || isNaN(max) || min >= max) {
+            result.innerHTML = "Please enter valid minimum and maximum values.";
+            return;
+        }
+
+        const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+        result.innerText = `Random Number: ${randomNumber}`;
+    }
+</script>
+
+<body>
+    <h1>Random Number Genarator</h1>
+    <form>
+        <label for="min">Minimum Value</label>
+        <input type="number" id="min" name="min" value="1" default="1" required />
+        <label for="max">Maximum Value</label>
+        <input type="number" id="max" name="max" value="100" default="100" required />
+        <button onclick="generate()">Generate</button>
+    </form>
+    <p id="result"></p>
+</body>
+
+</html>
