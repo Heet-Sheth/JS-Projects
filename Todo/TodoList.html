@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>Todo List</title>
+    <link rel="stylesheet" href="styles.css" type="text/css">
+    <script src="script.js" type="text/javascript" defer></script>
+</head>
+
+<body>
+    <div class="Top-Bar">
+        <h1>Todo List</h1>
+        <input type="text" id="newTodo" placeholder="Add a new todo...">
+        <div><span id="quotes-text">Good Morning !!!</span></div>
+    </div>
+    <div class="page-body" style="padding: 30px;">
+        <div class="list-container">
+            <script>
+                window.onload = function () {
+                    const items = itemManager.getItems();
+                    console.log("Items:", items);
+                    const listContainer = document.querySelector('.list-container');
+                    items.forEach((item, index) => {
+                        const todoHTML = `<div class="todo-card">
+                            <div class="todo-container">
+                                <div class="todo-headher">
+                                    <h3 class="todo-status">${item.status}</h3>
+                                    <div class="button-container">
+                                        <button class="todo-done todo-button" tooltip="Mark as Done" onclick="console.log('current index is ' + ${index})">✔</button>
+                                        <button class="todo-delete todo-button" tooltip="Delete current task">x</button>
+                                    </div>
+                                </div>
+                                <div class="todo-body">
+                                    <p class="todo-text">${item.text}</p>
+                                </div>
+                            </div>
+                        </div>`;
+                        listContainer.innerHTML += todoHTML;
+                    });
+                }
+            </script>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
